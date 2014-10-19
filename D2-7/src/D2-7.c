@@ -21,9 +21,8 @@ int main(void) {
 		for (j = 0; j < N; j++) {
 			arr[i][j] = (-90 + rand() % ( 90 - (-90) +1));
 			printf ("%d ", arr[i][j]);
-			if (j == (N -1))
-				printf("\n");
 		}
+		printf("\n");
 	}
 
 	min = arr[0][0];
@@ -41,7 +40,7 @@ int main(void) {
 		for (j = 0; j < N; j += 2)
 			sumj += arr[i][j];
 
-	f = fopen("data.txt", "w");
+	f = fopen("data.txt", "w+");
 	fprintf(f,"%d %d %d", min, sumi, sumj);
 	fclose(f);
 

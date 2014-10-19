@@ -28,7 +28,7 @@ int main(void) {
 	printf("\n");
 	// 1)
 	for (i = 1; i < N; i++) {
-		arr1[i - 1] *= (arr1[i] % 10);
+		arr1[i] *= (arr1[i - 1] % 10);
 		printf("%d ", arr1[i - 1]);
 	}
 	printf("%d", arr1[i]);
@@ -45,8 +45,17 @@ int main(void) {
 	fclose(f);
 
 	//Поиск минимального положительного и максимального отрицательного
-	min = arr2[0];
-	max = arr2[0];
+	for (i = 0; i < M / 2; i++)
+		if (arr2[i] > 0) {
+			min = arr2[i];
+			break;
+		}
+
+	for (i = M / 2; i < M; i++)
+		if (arr2[i] < 0) {
+			max = arr2[i];
+			break;
+		}
 
 	for(i = 0; i < M / 2; i++)
 		if ((arr2[i] > 0) && (arr2[i] < min))

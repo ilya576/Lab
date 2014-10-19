@@ -40,13 +40,10 @@ int main(void) {
 
 int search_m (int * array, int size){
 
-	int i, count = 0, m = 0, m1 = 0;
-
-	m = fabs(array[0] % 10);
+	int i, count = 0;
 
 	for (i = 1; i < size; i++) {
-		m1 = fabs(array[i] % 10);
-		if (m1 < m)
+		if (fabs(array[i] % 10) < fabs(array[0] % 10))
 			count++;
 	}
 
@@ -55,7 +52,14 @@ int search_m (int * array, int size){
 
 int search_min_4(int * array, int size) {
 
-	int min = 0, i;
+	int min = 0, i; //исправил
+
+	for (i = 0; i < size; i++) {
+		if (array[i] % 4 == 0) {
+			min = array[i];
+			break;
+		}
+	}
 
 	for(i = 0; i < size; i++) {
 		if (((array[i] % 4) == 0) && (array[i] < min))

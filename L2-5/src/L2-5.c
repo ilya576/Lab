@@ -32,9 +32,13 @@ int main(void) {
 
 double calculation(double x, double y) {
 
-	double s;
+	double s = 0.0;
 
-	s = 1 / sqrt((x / y) + 7 * pow(cos(x + 9), 2));
+	if (y != 0) {
+		if (x / y + 7 * pow(cos(x + 9), 2) > 0)
+			s = 1 / sqrt(x / y + 7 * pow(cos(x + 9), 2));
+
+	}
 
 	return s;
 }

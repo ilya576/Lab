@@ -14,7 +14,7 @@
 
 int main(void) {
 
-	int i, minpi, count = 0, average = 0, arr[N] = {0};
+	int i, min = 0, mini = 0, count = 0, average = 0, arr[N] = {0};
 
 	for (i = 0; i < N; i++) {
 		arr[i] = (-100 + rand() % (100 - (-100) + 1));
@@ -23,11 +23,17 @@ int main(void) {
 
 	printf ("\n");
 
-	minpi = arr[0];
+	for(i = 0; i < N; i++)
+		if(arr[i] > 0) {
+			min = arr[i];
+			break;
+		}
 
 	for (i = 0; i < N; i++)
-		if ((arr[i] > 0) && (arr[i] < minpi))
-			minpi = i;
+		if ((arr[i] > 0) && (arr[i] < min)) {
+			min = arr[i];
+			mini = i;
+		}
 
 	for (i = 0; i < N; i++)
 		if ((arr[i] < 0)) {
@@ -37,7 +43,7 @@ int main(void) {
 
 	average /= count;
 
-	printf ("Индекс минимального положительного элемента массива = %d \n", i);
+	printf ("Индекс минимального положительного элемента массива = %d \n", mini + 1);
 	printf ("average = %d \n", average);
 
 	return EXIT_SUCCESS;

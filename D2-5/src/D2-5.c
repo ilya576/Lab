@@ -23,15 +23,13 @@ int main(void) {
 		arr[i] = a;
 	}
 
-	for (i = 0; i < N; i++) {
+	for (i = 0; i < N; i++)
 		if (arr[i] > 0)
 			printf("%d ", arr[i]);
 		printf("\n");
 	for (i = 0; i < N; i++)
 		if (arr[i] < 0)
 			printf("%d ", arr[i]);
-
-	}
 
 	return EXIT_SUCCESS;
 }

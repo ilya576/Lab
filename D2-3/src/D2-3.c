@@ -16,7 +16,7 @@ double calculation(double, double, double, double);
 
 int main(void) {
 
-	double a, b, c, d, x;
+	double b, c, d, x;
 	FILE *f;
 
 	if ((f = fopen("input.txt", "r")) == 0){
@@ -26,9 +26,7 @@ int main(void) {
 	fscanf(f, "%lf %lf %lf %lf", &b, &c, &d, &x);
 	fclose(f);
 
-	a = calculation(x, b, c, d);
-
-	printf("%lf", a);
+	printf("%lf", calculation(x, b, c, d));
 
 	return EXIT_SUCCESS;
 }
@@ -41,4 +39,4 @@ double calculation (double x, double b, double c, double d) {
 		result = log(8 * d) + pow(5, x) + pow(c, 2) - ((pow(b, 3) - 5) / (10 + pow(c, 3)));
 
 	return result;
-};
+}

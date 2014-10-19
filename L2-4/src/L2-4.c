@@ -13,30 +13,23 @@
 #include <math.h>
 
 double function(double);
-double mult(double, double);
+double mult(double, double, double);
 
 int main(void) {
 
-	double x, y, max_y, min_y, p;
+	double x, min = -8.5, max = 3.7, h = 0.6;
 
-	for (x = -8.5; x <= 3.7; x += 0.6)
+	for (x = min; x <= max; x += h)
 		printf("%.2lf ", x);
 
 	printf("\n");
 
-	for (x = -8.5; x <= 3.7; x += 0.6) {
-		y = function(x);
-		if (y > max_y)
-			max_y = y;
-		if (y < min_y)
-			min_y = y;
-		printf("%.2lf ", y);
-	}
+	for (x = min; x <= max; x += h)
+		printf("%lf", function(x));
+
 	printf("\n");
 
-	p = mult(min_y, max_y);
-
-	printf("%lf", p);
+	printf("%lf", mult(min, max, h));
 
 	return EXIT_SUCCESS;
 }
@@ -50,11 +43,16 @@ double function(double x) {
 	return y;
 }
 
-double mult(double min_y, double max_y) {
+double mult(double a, double b, double h) {
 
-	double p;
+	double min = function(a), max = function(a), x;
 
-	p = min_y * max_y;
+	for (x = a; x <= b; x += h) {
+		if (function(x) > max)
+			max = function(x);
+		if (function(x) < min)
+			min = function(x);
+	}
 
-	return p;
+	return min * max;
 }

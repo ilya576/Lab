@@ -14,7 +14,7 @@
 
 int main(void) {
 
-	int init_array[N][N] = {{0}}, new_array[N][N] = {{0}}, i, j, sum = 0, sum_p =0, count = 0, count_avr = 0, average = 0;
+	int init_array[N][N] = {{0}}, new_array[N][N] = {{0}}, i, j, sum_p =0, count = 0, count_avr = 0;
 	FILE *f;
 
 	for (i = 0; i < N; i++)
@@ -35,6 +35,7 @@ int main(void) {
 			fscanf(f, "%d", &new_array[i][j]);
 	fclose(f);
 
+	int sum = 0;
 	for (i = 0; i < N; i++)
 		for (j = 0; j < N; j++)
 			if ((i < j) && (new_array[i][j] < 0)) {
@@ -42,13 +43,14 @@ int main(void) {
 			}
 	printf("Ñóììà = %d\n", sum);
 
+
 	for (i = 0; i < N; i++)
 		for (j = 0; j < N; j++)
 			if ((i + j) == (N - 1)) {
 				sum_p += new_array[i][j];
 				count_avr++;
 			}
-	average = sum_p / count_avr;
+	double average = (double)sum_p / count_avr;
 
 	for (i = 0; i < N; i++)
 		for (j = 0; j < N; j++)

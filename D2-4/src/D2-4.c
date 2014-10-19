@@ -16,14 +16,14 @@ int mult_range(int, int, int);
 
 int main(void) {
 
-	int a, b, h, result;
+	int a, b, h;
 	FILE *f;
 
 	f = fopen("input.txt", "r");
-	fscanf("%d %d %d", &a, &b, &h);
+	fscanf(f, "%d %d %d", &a, &b, &h);
 	fclose(f);
 
-	result = mult_range(a, b, h);
+	printf("%d", mult_range(a, b, h));
 
 	return EXIT_SUCCESS;
 }

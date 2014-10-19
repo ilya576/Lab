@@ -20,19 +20,20 @@ int main(void) {
 
 	scanf("%d", &a);
 
-	if (a >= (-99) && a <= (99)) {
+		if (a >= (-99) && a <= (99)) {
 
-	m1 = a % 10;
-	m2 = a / 10;
+		m1 = a % 10;
+		m2 = a / 10;
 
-	if ((m1 + m2) > 10)
-		while (a < 100) {
-			old_a = a;
-			b = (1.5 + rand() * (10.7 - 1.5)) / (double)RAND_MAX;
-			a += b;
-			printf("%lf + %lf = %d\n", old_a, b, a);
-			} else printf("неверное значение а\n");
-		} fflush(stdout);
+		if ((m1 + m2) > 10)
+			while (a < 100) {
+				old_a = a;
+				b = (1.5 + rand() * (10.7 - 1.5)) / (double)RAND_MAX;
+				a += b;
+				printf("%lf + %lf = %d\n", old_a, b, a);
+				} else printf("неверное значение а\n");
+			}
+		fflush(stdout);
 	}
 	return EXIT_SUCCESS;
 }

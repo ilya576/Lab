@@ -13,7 +13,7 @@
 #define N 30
 int main(void) {
 
-	int c = 0, i, m1, m2, arr[N] = {0};
+	int c = 0, i, m, arr[N] = {0};
 
 	for (i = 0; i < N; i++) {
 		arr[i] = (-1500 + rand() % (1500 - (-1500) + 1));
@@ -23,12 +23,8 @@ int main(void) {
 	printf("\n");
 
 	for (i = 0; i < N; i++) {
-		m1 = arr[i] % 10;
-		arr[i] /= 10;
-		m2 = arr[i] % 10;
-		arr[i] *= 10;
-		arr[i] += m1;
-		if (m1 == m2) {
+		m = arr[i] % 100;
+		if (m % 10 == m / 10) {
 			printf("%d", arr[i]);
 			c++;
 			break;

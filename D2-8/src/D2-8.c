@@ -13,7 +13,6 @@
 #include <math.h>
 
 #define N 25
-#define M 10000000000000000000000000.0
 
 int find (int *, int, double);
 
@@ -25,7 +24,7 @@ int main(void) {
 	for (i = 0; i < N; i++)
 		arr[i] = (-185 + rand() % (-23 - (-185) + 1));
 
-	for (i = 0; i < N; i ++)
+	for (i = 0; i < N; i++)
 		average += arr[i];
 	average /= (double) N;
 
@@ -43,9 +42,11 @@ int main(void) {
 int find (int * array, int size_arr, double average) {
 
 	int i, i_av;
-	double ABS = M, ABSn;
+	double ABS, ABSn;
 
-	for (i = 0; i < N; i++) {
+	ABS = (double)fabs(array[0] - average);
+
+	for (i = 0; i < size_arr; i++) {
 		ABSn = (double) fabs(array[i] - average);
 		if (ABSn < ABS) {
 			ABS = ABSn;
